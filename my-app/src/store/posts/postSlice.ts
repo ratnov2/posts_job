@@ -1,28 +1,37 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { TypePost } from "../../api/tapi-types/api.types";
 
-export interface PostState extends TypePost {
- loading: boolean;
+export interface IPostState {
+ posts: TypePost[];
+ isLoading: boolean;
+ error: string;
 }
 
-const initialState: PostState = {
- body: "",
- id: "",
- userId: "",
- title: "",
- loading: true,
+const initialState: IPostState = {
+ posts: [],
+ isLoading: true,
+ error: "",
 };
 
 export const postSlice = createSlice({
- name: "post",
+ name: "posts",
  initialState,
  reducers: {
-  savePost: (state, action: PayloadAction<TypePost>) => {
-   state = { ...state, ...action.payload };
+  postsFetching: (state) => {
+   state.isLoading = true;
   },
+  postsFetchingSuccess: (state, action: PayloadAction<TypePost[]>) => {
+    state.isLoading = false;
+    state.posts = action.payload;
+    state.error = "";
+   },
+   postsFetchingError: (state, action: PayloadAction<string>) => {
+    state.isLoading = false;
+    state.error = action.payload;
+   },
  },
 });
 
-export const { savePost } = postSlice.actions;
+export const { postsFetching,postsFetchingSuccess, postsFetchingError} = postSlice.actions;
 
-export default postSlice.reducer
+export default postSlice.reducer;

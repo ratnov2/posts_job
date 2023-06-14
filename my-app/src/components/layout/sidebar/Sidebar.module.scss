@@ -1,0 +1,28 @@
+@import "@/assets/styles/variables";
+
+.sidebar {
+ background-color: $bg-layout;
+ padding: 30px;
+ height: 100vh;
+ color: $white;
+ text-align: center;
+ h1 {
+  padding: 20px;
+ }
+ .img {
+  width: 50%;
+  margin: 20px;
+ }
+ .icons {
+  svg {
+   font-size: 40px;
+   margin: 0 10px;
+   border-radius: 100%;
+   cursor: pointer;
+   &:hover{
+    color:$bg-layout;
+    background-color: $white;
+   }
+  }
+ }
+}
