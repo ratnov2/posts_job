@@ -21,17 +21,18 @@ export const postSlice = createSlice({
    state.isLoading = true;
   },
   postsFetchingSuccess: (state, action: PayloadAction<TypePost[]>) => {
-    state.isLoading = false;
-    state.posts = action.payload;
-    state.error = "";
-   },
-   postsFetchingError: (state, action: PayloadAction<string>) => {
-    state.isLoading = false;
-    state.error = action.payload;
-   },
+   state.isLoading = false;
+   state.posts = action.payload;
+   state.error = "";
+  },
+  postsFetchingError: (state, action: PayloadAction<string>) => {
+   state.isLoading = false;
+   state.error = action.payload;
+  },
  },
 });
 
-export const { postsFetching,postsFetchingSuccess, postsFetchingError} = postSlice.actions;
+export const { postsFetching, postsFetchingSuccess, postsFetchingError } =
+ postSlice.actions;
 
 export default postSlice.reducer;

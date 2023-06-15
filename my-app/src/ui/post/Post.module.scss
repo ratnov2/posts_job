@@ -1,0 +1,14 @@
+.post{
+  position: relative;
+  margin-bottom: 40px;
+  img{
+    position: absolute;
+    z-index: 1;
+    left: -15px;
+    top: -15px;
+  }
+  .openComments{
+    cursor: pointer;
+    color: blue;
+  }
+}

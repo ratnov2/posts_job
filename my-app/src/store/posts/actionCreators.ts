@@ -10,7 +10,9 @@ export const getPosts = () => async (dispatch: AppDispatch) => {
  try {
   dispatch(postsFetching());
   const response = await PostService.getAllPosts();
-  dispatch(postsFetchingSuccess(response.data));
+  setTimeout(() => {
+   dispatch(postsFetchingSuccess(response.data));
+  }, 500);
  } catch (error: any) {
   dispatch(postsFetchingError(error));
  }
