@@ -15,7 +15,7 @@ const Layout: FC<PropsWithChildren<ILayout>> = ({ children, ...rest }) => {
 
    <main>
     <Row>
-     <Col>
+     <Col xs={4}>
       <Sidebar />
      </Col>
      <Col>

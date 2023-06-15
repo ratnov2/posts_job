@@ -3,7 +3,7 @@
 .sidebar {
  background-color: $bg-layout;
  padding: 30px;
- height: 100vh;
+ min-height: 100vh;
  color: $white;
  text-align: center;
  h1 {
@@ -14,14 +14,44 @@
   margin: 20px;
  }
  .icons {
+  border-bottom: 1.5px solid rgb(15, 101, 49);
   svg {
    font-size: 40px;
-   margin: 0 10px;
+   margin: 30px 10px;
    border-radius: 100%;
    cursor: pointer;
-   &:hover{
-    color:$bg-layout;
+   &:hover {
+    color: $bg-layout;
     background-color: $white;
+   }
+  }
+ }
+ .routes {
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: left;
+  width: fit-content;
+  a {
+   margin: 10px;
+   display: flex;
+   align-items: center;
+   color: white;
+   &:hover {
+    text-decoration: underline !important;
+    color: rgb(1, 56, 11);
+   }
+   svg {
+    margin-right: 10px;
+   }
+  }
+  .active {
+   color: rgb(1, 56, 11);
+   &:hover {
+    text-decoration: none !important;
+    color: rgb(1, 56, 11);
    }
   }
  }
