@@ -1,13 +1,13 @@
 import { $host } from "../api/api";
-import { TypeComment, TypePost, TypeUser } from "../api/tapi-types/api.types";
+import { TypeComment, TypePost, TypeUsers } from "../api/tapi-types/api.types";
 
 export const PostService = {
  async getAllPosts() {
   const response = await $host.get<TypePost[]>("/posts");
   return response;
  },
- async getPost(postId: string) {
-  const response = await $host.get<TypePost>(`/posts`);
+ async getPostsUser(userId: string) {
+  const response = await $host.get<TypePost>(`/posts/${userId}`);
   return response;
  },
  async getCommentsByPost(postId: string) {
@@ -20,8 +20,8 @@ export const PostService = {
   });
   return response;
  },
- async getUser() {
-  const response = await $host.get<TypeUser>("/user");
+ async getUsers() {
+  const response = await $host.get<TypeUsers[]>("/users");
   return response;
  },
 };

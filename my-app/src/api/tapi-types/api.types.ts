@@ -11,10 +11,10 @@ export type TypeComment = {
  email: string;
  body: string;
 };
-export type TypeUser = {
+export type TypeUsers = {
  id: string;
  name: string;
- userName: string;
+ username: string;
  email: string;
  address: {
   street: string;

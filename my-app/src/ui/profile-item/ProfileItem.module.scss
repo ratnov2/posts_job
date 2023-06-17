@@ -1,0 +1,16 @@
+.profileItem {
+ border-bottom: 2px solid rgb(224, 221, 221);
+ margin-bottom: 15px;
+ padding-left: 20px;
+ width: 100%;
+ &:last-child {
+  border-bottom: 0;
+ }
+ h1 {
+  font-size: 20px;
+  color: rgb(78, 78, 78);
+ }
+ p {
+  margin-bottom: 10px;
+ }
+}

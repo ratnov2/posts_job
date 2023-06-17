@@ -1,6 +1,23 @@
-.profile{
-  margin-top: 50px;
-  h1{
-    margin-bottom: 20px;
+@import "@/assets/styles/_variables.scss";
+
+.profile {
+ margin-top: 50px;
+ .spinner{
+  position: absolute;
+ }
+ .h1 {
+  margin-bottom: 20px;
+ }
+ .profileInfo {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  img {
+   border: 2px solid #c7c7c7;
+   border-radius: 100%;
+   background: #c7c7c7;
   }
+ }
+ .userInfo {
+  margin-left: 50px;
+ }
 }

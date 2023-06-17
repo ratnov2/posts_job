@@ -6,14 +6,12 @@ import Spinner from "react-bootstrap/Spinner";
 
 const MiddleInfo = () => {
  const { posts, error, isLoading } = useAppSelector((store) => store.post);
- const { comments, loadingIdPost } = useAppSelector(
-  (state) => state.comments
- );
 
  const dispatch = useAppDispatch();
  const getPostHandler = (postId: string) => {
   dispatch(getComments(postId));
  };
+ 
  return (
   <div className={style.middleInfo}>
    <div className={style.header}>
@@ -30,7 +28,6 @@ const MiddleInfo = () => {
       getPost={() => getPostHandler(post.id)}
       {...post}
       key={post.id}
-      // comments={comments[userId]}
      />
     ))}
   </div>

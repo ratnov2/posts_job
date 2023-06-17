@@ -1,19 +1,19 @@
 import { PostService } from "../../services/post.service";
 import { AppDispatch } from "../store";
-import postSlice, {
- postsFetching,
- postsFetchingError,
- postsFetchingSuccess,
+import {
+ userFetching,
+ userFetchingError,
+ userFetchingSuccess,
 } from "./userSlice";
 
 export const getUser = () => async (dispatch: AppDispatch) => {
  try {
-  dispatch(postsFetching());
-  const response = await PostService.getUser();
+  dispatch(userFetching());
+  const response = await PostService.getUsers();
   setTimeout(() => {
-   dispatch(postsFetchingSuccess(response.data));
+   dispatch(userFetchingSuccess(response.data));
   }, 500);
  } catch (error: any) {
-  dispatch(postsFetchingError(error));
+  dispatch(userFetchingError(error));
  }
 };

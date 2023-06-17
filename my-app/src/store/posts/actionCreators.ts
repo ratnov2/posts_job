@@ -17,3 +17,15 @@ export const getPosts = () => async (dispatch: AppDispatch) => {
   dispatch(postsFetchingError(error));
  }
 };
+export const getPostsByUser =
+ (userId: string) => async (dispatch: AppDispatch) => {
+  try {
+   dispatch(postsFetching());
+   const response = await PostService.getPostsUser(userId);
+   setTimeout(() => {
+    dispatch(postsFetchingSuccess([response.data]));
+   }, 500);
+  } catch (error: any) {
+   dispatch(postsFetchingError(error));
+  }
+ };
