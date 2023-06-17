@@ -1,17 +1,27 @@
 import { $host } from "../api/api";
-import { TypeComment, TypePost } from "../api/tapi-types/api.types";
+import { TypeComment, TypePost, TypeUser } from "../api/tapi-types/api.types";
 
 export const PostService = {
  async getAllPosts() {
   const response = await $host.get<TypePost[]>("/posts");
   return response;
  },
- async getPost(searchTerm: string) {
-  const response = await $host.get<TypePost>(`/posts/${searchTerm}`);
+ async getPost(postId: string) {
+  const response = await $host.get<TypePost>(`/posts`);
   return response;
  },
- async getCommentsByPost(searchTerm: string) {
-  const response = await $host.get<TypeComment[]>(`/posts/${searchTerm}/comments`);
+ async getCommentsByPost(postId: string) {
+  const response = await $host.get<TypeComment[]>(`/comments/`, {
+   params: postId
+    ? {
+       postId,
+      }
+    : {},
+  });
+  return response;
+ },
+ async getUser() {
+  const response = await $host.get<TypeUser>("/user");
   return response;
  },
 };

@@ -3,8 +3,7 @@ import { FC, PropsWithChildren } from "react";
 import Meta from "./meta/Meta";
 import { ISeo } from "./meta/meta.interface";
 import Sidebar from "./sidebar/Sidebar";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import style from './Layout.module.scss'
 
 interface ILayout extends ISeo {}
 
@@ -12,16 +11,15 @@ const Layout: FC<PropsWithChildren<ILayout>> = ({ children, ...rest }) => {
  return (
   <>
    <Meta {...rest} />
-
    <main>
-    <Row>
-     <Col xs={4}>
+    <div className={style.main}>
+     <div className={style.sidebar}>
       <Sidebar />
-     </Col>
-     <Col>
+     </div>
+     <div className={style.children}>
       <section>{children}</section>
-     </Col>
-    </Row>
+     </div>
+    </div>
    </main>
   </>
  );

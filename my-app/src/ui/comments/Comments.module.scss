@@ -1,0 +1,23 @@
+.card {
+ width: 80%;
+ margin-left: auto;
+ margin-top: 10px;
+ .title {
+  font-size: 14px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  img {
+   border-radius: 100%;
+  }
+  .titleText {
+   display: flex;
+   flex-direction: column;
+  }
+ }
+
+ .text {
+  font-size: 13px;
+  line-height: 14px;
+ }
+}

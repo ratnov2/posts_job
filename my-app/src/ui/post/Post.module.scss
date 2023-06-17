@@ -1,7 +1,7 @@
 .post{
   position: relative;
   margin-bottom: 40px;
-  img{
+  .img{
     position: absolute;
     z-index: 1;
     left: -15px;
@@ -10,5 +10,8 @@
   .openComments{
     cursor: pointer;
     color: blue;
+  }
+  .spinner{
+    position: absolute;
   }
 }

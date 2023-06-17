@@ -27,7 +27,7 @@ const Sidebar = () => {
    <div className={style.routes}>
     {DataSidebarRoute.map((route) => {
      return (
-      <a href={route.route} className={pathname===route.route ? style.active:''}>
+      <a href={route.route} className={pathname===route.route ? style.active:''} key={route.route}>
        {route.componentIcon}
        <span>{route.title}</span>
       </a>
