@@ -6,8 +6,8 @@ export const PostService = {
   const response = await $host.get<TypePost[]>("/posts");
   return response;
  },
- async getPostsUser(userId: string) {
-  const response = await $host.get<TypePost>(`/posts/${userId}`);
+ async getPostsUser(userId: number) {
+  const response = await $host.get<TypePost>(`/posts/${String(userId)}`);
   return response;
  },
  async getCommentsByPost(postId: string) {

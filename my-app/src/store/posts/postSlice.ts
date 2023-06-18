@@ -3,12 +3,18 @@ import { TypePost } from "../../api/tapi-types/api.types";
 
 export interface IPostState {
  posts: TypePost[];
+ paginationInfo: {
+  beginIndex: number;
+  endIndex: number;
+  length: number;
+ } | null;
  isLoading: boolean;
  error: string;
 }
 
 const initialState: IPostState = {
  posts: [],
+ paginationInfo: null,
  isLoading: true,
  error: "",
 };
@@ -23,6 +29,11 @@ export const postSlice = createSlice({
   postsFetchingSuccess: (state, action: PayloadAction<TypePost[]>) => {
    state.isLoading = false;
    state.posts = action.payload;
+   state.paginationInfo = {
+    beginIndex:0,
+    endIndex:10,
+    length:action.payload.length
+   }
    state.error = "";
   },
   postsFetchingError: (state, action: PayloadAction<string>) => {

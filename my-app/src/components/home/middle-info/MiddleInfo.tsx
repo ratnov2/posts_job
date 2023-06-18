@@ -1,8 +1,11 @@
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { getComments } from "../../../store/comments/actionCreators";
 import Post from "../../../ui/post/Post";
 import style from "./MiddleInfo.module.scss";
 import Spinner from "react-bootstrap/Spinner";
+import PaginationScope from "./pagination/PaginationScope";
+import usePaginationShare from "./usePaginationShare";
 
 const MiddleInfo = () => {
  const { posts, error, isLoading } = useAppSelector((store) => store.post);
@@ -11,7 +14,9 @@ const MiddleInfo = () => {
  const getPostHandler = (postId: string) => {
   dispatch(getComments(postId));
  };
- 
+
+ const { nextPage, prevPage, setPage, pageIndex } = usePaginationShare(posts);
+
  return (
   <div className={style.middleInfo}>
    <div className={style.header}>
@@ -23,13 +28,20 @@ const MiddleInfo = () => {
    </div>
    {isLoading && <Spinner animation="border" variant="success" />}
    {posts.length !== 0 &&
-    posts.map((post) => (
-     <Post
-      getPost={() => getPostHandler(post.id)}
-      {...post}
-      key={post.id}
-     />
-    ))}
+    posts
+     .slice((pageIndex.currentPage - 1) * 10, pageIndex.currentPage * 10)
+     .map((post) => (
+      <Post getPost={() => getPostHandler(post.id)} {...post} key={post.id} />
+     ))}
+   {pageIndex.pages && (
+    <PaginationScope
+     activeIndex={pageIndex.currentPage}
+     lastIndex={pageIndex.pages}
+     nextPage={nextPage}
+     prevPage={prevPage}
+     setPage={setPage}
+    />
+   )}
   </div>
  );
 };

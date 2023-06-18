@@ -1,0 +1,12 @@
+@import '@/assets/styles/_variables.scss';
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #adadad;
+  padding: 30px 0;
+  font-size: 20px;
+  b{
+    color: $bg-layout;
+  }
+}

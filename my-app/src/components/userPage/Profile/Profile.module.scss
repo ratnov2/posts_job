@@ -1,12 +1,14 @@
 @import "@/assets/styles/_variables.scss";
 
 .profile {
- margin-top: 50px;
- .spinner{
-  position: absolute;
- }
- .h1 {
+ .h1Profile {
+  margin-top: 50px;
   margin-bottom: 20px;
+ }
+ .h1Posts {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
  }
  .profileInfo {
   display: grid;

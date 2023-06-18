@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { getUser } from "../../../store/user/actionCreators";
+import { getComments } from "../../../store/comments/actionCreators";
+import { getPostsByUser } from "../../../store/posts/actionCreators";
+import { getParam } from "../../../utils/getParam";
 
 const useProfileShare = () => {
  const { pathname } = useLocation();
@@ -10,7 +13,7 @@ const useProfileShare = () => {
 
  const [userField, setUserField] = useState<IUserField[] | null>();
 
- const path = Number(pathname.split("/")[2]);
+ const path = getParam(pathname) - 1;
 
  useEffect(() => {
   if (users !== null && userField !== null) {
@@ -36,12 +39,22 @@ const useProfileShare = () => {
   dispatch(getUser());
  }, []);
 
- return { userField, isLoading };
+ //// for post
+
+ const getPostHandler = (postId: string) => {
+  dispatch(getComments(postId));
+ };
+
+ useEffect(() => {
+  dispatch(getPostsByUser(getParam(pathname)));
+ }, []);
+
+ return { userField, isLoading, getPostHandler };
 };
 
 export default useProfileShare;
 
-interface IUserField {
+export interface IUserField {
  userName: string;
  name: string;
  email: string;

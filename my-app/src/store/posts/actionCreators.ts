@@ -18,7 +18,7 @@ export const getPosts = () => async (dispatch: AppDispatch) => {
  }
 };
 export const getPostsByUser =
- (userId: string) => async (dispatch: AppDispatch) => {
+ (userId: number) => async (dispatch: AppDispatch) => {
   try {
    dispatch(postsFetching());
    const response = await PostService.getPostsUser(userId);

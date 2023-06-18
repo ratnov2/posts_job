@@ -1,5 +1,5 @@
 .main {
-  margin: 40px;
+ margin: 40px;
  .sidebar {
   width: 30%;
   position: fixed;
@@ -12,5 +12,8 @@
   right: 0;
   padding-right: 40px;
   padding-left: 30px;
+  section {
+   min-height: 100vh;
+  }
  }
 }
