@@ -18,7 +18,7 @@ const MiddleInfo = () => {
  const { nextPage, prevPage, setPage, pageIndex } = usePaginationShare(posts);
 
  return (
-  <div className={style.middleInfo}>
+  <div className={`${style.middleInfo} scroll-top-pagination`}>
    <div className={style.header}>
     <h1>Blog for the curious</h1>
     <p>
